@@ -14,7 +14,7 @@
       </el-menu>
     </el-header>
     <el-main>
-      <router-view style="width: 80%;margin-left: 10%;background-color: #ffffff;box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)"/>
+      <router-view/>
     </el-main>
 <!--    <el-footer>Footer</el-footer>-->
   </el-container>
@@ -39,15 +39,15 @@ export default {
 }
 </script>
 <style>
-.el-header, .el-footer {
-  color: #333;
-  text-align: center;
-  line-height: 60px;
-}
+/*.el-header, .el-footer {*/
+/*  color: #333;*/
+/*  text-align: center;*/
+/*  line-height: 60px;*/
+/*}*/
 
-.el-main {
-  color: #333;
-  text-align: center;
-  /*line-height: 160px;*/
-}
+/*.el-main {*/
+/*  color: #333;*/
+/*  text-align: center;*/
+/*  !*line-height: 160px;*!*/
+/*}*/
 </style>

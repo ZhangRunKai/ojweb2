@@ -61,8 +61,6 @@ export default {
     getData(){
       this.$axios.post('/problem/findPublic',this.problem).then((res)=>{
         this.problem = res.data.data;
-        console.log(res.data.data)
-        console.log(this.problem)
       })
     },
   },
