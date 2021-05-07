@@ -1,6 +1,6 @@
 <template>
-  <div style="width: 80%;margin-left: 10%;background-color: #ffffff;box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)">
-    <div style="padding: 75px 75px">
+  <div style="width: 90%;margin-left: 5%;background-color: #ffffff;box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)">
+    <div style="padding: 20px 20px">
       <div class="content markdown-body" v-html="about"></div>
     </div>
   </div>

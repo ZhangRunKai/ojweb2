@@ -41,6 +41,14 @@ const routes = [
         component: ()=>import('../views/problem/LabelManage')
       },
       {
+        path: '/contestView',
+        name: 'ContestView',
+        component: ()=>import('../views/contest/ContestView'),
+        // children:[
+        //
+        // ]
+      },
+      {
         path: '/contests',
         name: 'Contests',
         component:()=>import('../views/contest/Contests'),
@@ -52,14 +60,29 @@ const routes = [
         component:()=>import('../views/contest/Contest'),
       },
       {
-        path: '/contestProblems',
-        name: 'ContestProblems',
-        component:()=>import('../views/contest/ContestProblems'),
+        path: '/contestMain',
+        name: 'ContestMain',
+        component:()=>import('../views/contest/ContestMain'),
+        children:[
+          {
+            path: '/contestProblems',
+            name: 'ContestProblems',
+            component:()=>import('../views/contest/ContestProblems'),
+          },
+          {
+            path: '/contestProblem',
+            name: 'ContestProblem',
+            component:()=>import('../views/contest/ContestProblem'),
+          },
+        ]
       },
       {
-        path: '/contestProblem',
-        name: 'ContestProblem',
-        component:()=>import('../views/contest/ContestProblem'),
+        path: '/contestManage',
+        component:()=>import('../views/contest/admin/ContestsManage'),
+      },
+      {
+        path: '/createContest',
+        component:()=>import('../views/contest/admin/CreateContest'),
       },
     ]
   },

@@ -1,6 +1,7 @@
 <template>
 
-  <div >
+  <div style="width: 90%;margin-left: 5%;background-color: #ffffff;box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)">
+    <div style="padding: 20px 20px">
       <span>
         <el-table
             :data="page.records"
@@ -33,15 +34,16 @@
         </el-table-column>
       </el-table>
       </span>
-    <el-pagination
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page="page.current"
-        :page-sizes="[10, 20, 30, 40]"
-        :page-size="page.size"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="page.total">
-    </el-pagination>
+      <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="page.current"
+          :page-sizes="[10, 20, 30, 40]"
+          :page-size="page.size"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="page.total">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -84,5 +86,8 @@ name: "Contests",
 </script>
 
 <style scoped>
+.contest-card{
+  width: 60%;
+}
 
 </style>

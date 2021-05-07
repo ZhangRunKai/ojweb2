@@ -2,7 +2,7 @@
 
   <div>
     <div >
-      <el-button>创建比赛</el-button>
+      <el-button @click="createContest">创建比赛</el-button>
       <span>
         <el-table
             :data="page.records"
@@ -22,9 +22,26 @@
             label="报名人数">
         </el-table-column>
         <el-table-column
+            prop="contestBegin"
+            label="开始时间">
+        </el-table-column>
+        <el-table-column
+            prop="contestEnd"
+            label="结束时间时间">
+        </el-table-column>
+        <el-table-column
             prop="isPrivate"
             label="比赛性质">
         </el-table-column>
+          <el-table-column
+              fixed="right"
+              label="操作"
+              width="100">
+          <template slot-scope="scope">
+            <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+            <el-button type="text" size="small">管理</el-button>
+          </template>
+    </el-table-column>
       </el-table>
       </span>
       <el-pagination
@@ -60,6 +77,9 @@ name: "ContestsManage",
     getProblem(data){
       console.log(data)
       this.$router.push({path:"/problem",query: {id:this.page.records[data].problemId}});
+    },
+    createContest(){
+      this.$router.push({path:"/createContest"});
     },
     getData(){
       this.$axios.post('/contest/findContestByCreate',this.page).then((res)=>{

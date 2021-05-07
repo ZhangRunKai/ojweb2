@@ -42,7 +42,6 @@ export default {
           sessionStorage.setItem("userId", res.data.data.userId);
           sessionStorage.setItem("userName", res.data.data.userName);
           sessionStorage.setItem("rolePower", res.data.data.rolePower);
-          sessionStorage.setItem("roleDescribe", res.data.data.roleDescribe);
           this.$router.push({path:"/"});
         }
         else{

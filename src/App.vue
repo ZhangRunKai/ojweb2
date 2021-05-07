@@ -16,7 +16,7 @@
 #bg{
   margin:0;
   padding:0;
-  background-image: url("../src/assets/bg.png");
+  /*background-image: url("../src/assets/bg.png");*/
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
