@@ -21,17 +21,17 @@
           <el-input v-model="form.contestPassword" style="width: 270px"></el-input>
         </el-form-item>
         <el-form-item label="比赛时间">
-            <el-date-picker
-                v-model="form.contestBegin"
-                type="datetime"
-                start-placeholder="开始时间">
-            </el-date-picker>
+          <el-date-picker
+              v-model="form.contestBegin"
+              type="datetime"
+              start-placeholder="开始时间">
+          </el-date-picker>
           <p>至</p>
-            <el-date-picker
-                v-model="form.contestEnd"
-                type="datetime"
-                start-placeholder="结束时间">
-            </el-date-picker>
+          <el-date-picker
+              v-model="form.contestEnd"
+              type="datetime"
+              start-placeholder="结束时间">
+          </el-date-picker>
         </el-form-item>
         <el-form-item label="报名截止时间">
           <el-date-picker
@@ -54,7 +54,7 @@
           <mavon-editor v-model="form.content"/>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="createContest">创建比赛</el-button>
+          <el-button type="primary" @click="createContest">确定</el-button>
           <el-button>取消</el-button>
         </el-form-item>
       </el-form>
@@ -65,10 +65,11 @@
 
 <script>
 export default {
-name: "CreateContest",
+  name: "CreateContest",
   data(){
     return{
       form:{
+        contestId:'',
         contestName: '',
         contestAuthor: '',
         contestBegin: '',
@@ -79,8 +80,10 @@ name: "CreateContest",
         content:'',
         problems:[],
       },
-      contestTime:{},
     }
+  },
+  created() {
+    this.form.contestId = this.$route.query.id;
   },
   methods: {
     createContest(){

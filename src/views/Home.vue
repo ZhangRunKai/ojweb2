@@ -6,7 +6,7 @@
         <el-menu-item index="/problems">题库</el-menu-item>
         <el-menu-item index="/222">课程</el-menu-item>
         <el-menu-item index="/contests">比赛</el-menu-item>
-        <el-menu-item index="/4">题目管理</el-menu-item>
+        <el-menu-item index="/adminProblemMain">题目管理</el-menu-item>
         <el-menu-item index="/p2lem">课程管理</el-menu-item>
         <el-menu-item index="/contestManage">比赛管理</el-menu-item>
         <el-menu-item index="/p2blem">系统管理</el-menu-item>

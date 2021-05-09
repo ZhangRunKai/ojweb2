@@ -26,14 +26,21 @@ const routes = [
         component: ()=>import('../views/problem/Problems')
       },
       {
-        path: '/createProblem',
-        name: 'CreateProblem',
-        component: ()=>import('../views/problem/CreateProblem')
-      },
-      {
-        path: 'problemManage',
-        name: 'ProblemManage',
-        component: ()=>import('../views/problem/ProblemManage')
+        path: '/adminProblemMain',
+        name: 'ProblemMain',
+        component: ()=>import('../views/problem/admin/ProblemMain'),
+        children: [
+          {
+            path: '/',
+            name: 'ProblemManage',
+            component: ()=>import('../views/problem/admin/ProblemManage')
+          },
+          {
+            path: '/createProblem',
+            name: 'CreateProblem',
+            component: ()=>import('../views/problem/admin/CreateProblem')
+          },
+        ]
       },
       {
         path: 'labelManage',
@@ -83,6 +90,10 @@ const routes = [
       {
         path: '/createContest',
         component:()=>import('../views/contest/admin/CreateContest'),
+      },
+      {
+        path: '/createEdit',
+        component:()=>import('../views/contest/admin/ContestEdit'),
       },
     ]
   },

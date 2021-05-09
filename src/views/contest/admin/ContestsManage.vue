@@ -7,7 +7,6 @@
         <el-table
             :data="page.records"
             stripe
-            header-click="getProblem"
             style="width: 100%">
         <el-table-column
             prop="contestId"
@@ -30,7 +29,12 @@
             label="结束时间时间">
         </el-table-column>
         <el-table-column
-            prop="isPrivate"
+            prop="contestStatus"
+            :formatter=contestStatus
+            label="比赛状态">
+        </el-table-column>
+        <el-table-column
+            :formatter=privateStatus
             label="比赛性质">
         </el-table-column>
           <el-table-column
@@ -38,7 +42,7 @@
               label="操作"
               width="100">
           <template slot-scope="scope">
-            <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+            <el-button @click="gotoContestEdit(scope.row)" type="text" size="small">编辑</el-button>
             <el-button type="text" size="small">管理</el-button>
           </template>
     </el-table-column>
@@ -74,6 +78,10 @@ name: "ContestsManage",
     this.getData()
   },
   methods: {
+    gotoContestEdit(row){
+      console.log(row.contestId)
+      this.$router.push({path:"/createEdit",query: {id:row.contestId}});
+    },
     getProblem(data){
       console.log(data)
       this.$router.push({path:"/problem",query: {id:this.page.records[data].problemId}});
@@ -83,8 +91,9 @@ name: "ContestsManage",
     },
     getData(){
       this.$axios.post('/contest/findContestByCreate',this.page).then((res)=>{
-        this.page = res.data.data;
-
+        if(res.data.status == 200){
+          this.page = res.data.data;
+        }
       })
     },
     handleSizeChange(val) {
@@ -92,6 +101,23 @@ name: "ContestsManage",
     },
     handleCurrentChange(val) {
       this.page.current=val
+    },
+    privateStatus(row) {
+      return row.isPrivate==1 ? "私有" : "公开"
+    },
+    contestStatus(row) {
+      if (row.contestStatus == 0) {
+        return "草稿";
+      }
+      else if (row.contestStatus == 1) {
+        return "发布";
+      }
+      else if (row.contestStatus == 2) {
+        return "报名截止";
+      }
+      else if (row.contestStatus == 3) {
+        return "废除";
+      }
     },
   },
 }

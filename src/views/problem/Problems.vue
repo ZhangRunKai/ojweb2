@@ -18,18 +18,18 @@
             <a @click="getProblem(scope.row.problemId)" style="color:blue;cursor:pointer">{{ scope.row.problemTitle }}</a>
           </template>
         </el-table-column>
-<!--        <el-table-column-->
-<!--            label="标签">-->
-<!--          <template slot-scope="scope">-->
-<!--            <el-tag-->
-<!--                v-for="item in scope.row.labels"-->
-<!--                :key="item.labelId"-->
-<!--                size="mini"-->
-<!--                effect="plain">-->
-<!--              {{ item.labelName }}-->
-<!--            </el-tag>-->
-<!--          </template>-->
-<!--        </el-table-column>-->
+        <el-table-column
+            label="标签">
+          <template slot-scope="scope">
+            <el-tag
+                v-for="item in scope.row.labels"
+                :key="item.labelId"
+                size="mini"
+                effect="plain">
+              {{ item.labelName }}
+            </el-tag>
+          </template>
+        </el-table-column>
         <el-table-column
             prop="problemDegree"
             label="难度">

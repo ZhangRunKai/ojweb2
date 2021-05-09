@@ -85,17 +85,9 @@ export default {
   },
   methods: {
     getData(){
-      this.$axios.post('/problem/findAll',this.page).then((res)=>{
+      this.$axios.post('/problem/findPrivate',this.page).then((res)=>{
         console.log(res)
         this.page = res.data.data;
-        for(var i=0;i<this.page.total;i++){
-          if(this.page.records[i].problemNum===0){
-            this.page.records[i].problemPassRate="0.00%";
-          }
-          else{
-            this.page.records[i].problemPassRate=(Math.floor(this.page.records[i].problemAccept*10000/this.page.records[i].problemNum)/100)+"%"
-          }
-        }
       })
     },
     handleSizeChange(val) {
