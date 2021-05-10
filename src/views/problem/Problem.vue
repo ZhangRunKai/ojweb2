@@ -32,13 +32,28 @@
         </div>
 
     </div>
+<!--    @changes="changes"-->
+    <codemirror  ref="myCm"  v-model="code"  :options="cmOptions"  class="code"/>
   </div>
 </template>
 
 <script>
+import { codemirror } from 'vue-codemirror'
+require("codemirror/mode/python/python.js")
+require('codemirror/addon/fold/foldcode.js')
+require('codemirror/addon/fold/foldgutter.js')
+require('codemirror/addon/fold/brace-fold.js')
+require('codemirror/addon/fold/xml-fold.js')
+require('codemirror/addon/fold/indent-fold.js')
+require('codemirror/addon/fold/markdown-fold.js')
+require('codemirror/addon/fold/comment-fold.js')
 export default {
+  components:{
+    codemirror
+  },
   data() {
     return {
+      code:{},
       problem: {
         problemId: '',
         problemTitle: '',
@@ -54,6 +69,17 @@ export default {
         cspaceLimited: '',
         problemNum: '',
         problemAccept: '',
+      },
+      cmOptions: {
+        tabSize: 4,
+        mode: 'python',
+        theme: 'monokai',
+        lineNumbers: true,
+        lineWrapping: true,
+        lineWiseCopyCut: true,
+        showCursorWhenSelecting: true,
+        matchBrackets: true,
+        line: true,
       }
     }
   },

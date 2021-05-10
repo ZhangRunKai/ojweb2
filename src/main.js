@@ -8,6 +8,12 @@ import Element from 'element-ui'
 import "element-ui/lib/theme-chalk/index.css"
 import axios from 'axios'
 import './axios.js' // 请求拦截
+import { codemirror } from 'vue-codemirror'
+import 'codemirror/lib/codemirror.css'
+import 'codemirror/theme/monokai.css'
+import 'codemirror/addon/mode/overlay'
+import 'codemirror/addon/mode/multiplex'
+Vue.use(codemirror)
 Vue.use(Element)
 Vue.use(mavonEditor)
 Vue.prototype.$axios = axios //
